@@ -1,17 +1,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System;
-
 namespace Pierre.Models
 {
-  public class Treat
+  public class Flavor
   {
-    public int TreatId { get; set; }
-
+    public int FlavorId { get; set; }
     [Required(ErrorMessage = "The textbox can't be empty!")]
-    public string TreatName { get; set; }
+    public string FlavorName { get; set; }
 
     public List<TreatFlavor> JoinEntities { get; }
-
   }
 }
