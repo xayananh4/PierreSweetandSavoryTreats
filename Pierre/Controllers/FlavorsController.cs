@@ -81,6 +81,13 @@ namespace Pierre.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult AddTreat(int id)
+    {
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
+      return View(thisFlavor);
+    }
+
 
 
 
