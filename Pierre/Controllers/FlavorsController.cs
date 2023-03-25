@@ -7,17 +7,17 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Pierre.Controllers
 {
-  public class TreatsController : Controller
+  public class FlavorsController : Controller
   {
     private readonly PierreContext _db;
 
-    public TreatsController(PierreContext db)
+    public FlavorsController(PierreContext db)
     {
       _db = db;
     }
     public ActionResult Index()
     {
-      return View(_db.Treats.ToList());
+      return View(_db.Flavors.ToList());
     }
 
     public ActionResult Create()
@@ -26,32 +26,29 @@ namespace Pierre.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Treat treat)
+    public ActionResult Create(Flavor flavor)
     {
       if (!ModelState.IsValid)
       {
-        ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
-        return View(treat);
+        ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
+        return View(flavor);
       }
       else
       {
-        _db.Treats.Add(treat);
+        _db.Flavors.Add(flavor);
         _db.SaveChanges();
         return RedirectToAction("Index");
       }
     }
-    //view the details of this treat 
+    //view the details of this flavor 
     public ActionResult Details(int id)
     {
-      Treat thisTreat = _db.Treats
-          .Include(treat => treat.JoinEntities)
-          .ThenInclude(join => join.Flavor)
-          .FirstOrDefault(treat => treat.TreatId == id);
-      return View(thisTreat);
+      Flavor thisFlavor = _db.Flavors
+          .Include(flavor => flavor.JoinEntities)
+          .ThenInclude(join => join.Treat)
+          .FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(thisFlavor);
     }
-
-    //update the treat 
-    
 
 
 
