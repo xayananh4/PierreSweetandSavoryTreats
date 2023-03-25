@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Pierre.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Pierre
 {
@@ -21,6 +22,11 @@ namespace Pierre
                   )
                 );
 
+      // New code below!!
+      builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ToDoListContext>()
+                .AddDefaultTokenProviders();
+
 
       WebApplication app = builder.Build();
 
@@ -29,6 +35,9 @@ namespace Pierre
       app.UseStaticFiles();
 
       app.UseRouting();
+
+      app.UseAuthentication();
+      app.UseAuthorization();
 
       app.MapControllerRoute(
         name: "default",
