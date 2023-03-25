@@ -29,7 +29,7 @@ else
   </ul>
 }
 
-<p>@Html.ActionLink("Edit this Treat:", "Edit", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Add a flavor to this treat", "AddFlavor", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Edit this Treat", "Edit", new { id = Model.TreatId })</p>
 <p>@Html.ActionLink("Delete This Treat", "Delete", new { id = Model.TreatId })</p>
 <p>@Html.ActionLink("Back to list of Treats", "Index")</p>
-<p>@Html.ActionLink("Add a Flavor to this Treat", "AddFlavor", new { id = Model.TreatId })</p>
