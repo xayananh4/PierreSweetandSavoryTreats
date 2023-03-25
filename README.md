@@ -1,9 +1,9 @@
-# Dr. Sillystringz's Factory
+# Pierre's Sweet and Savory Treats
 Names of contributors: By Viradeth Xay-ananh.  
-MVC web application for Dr. Sillystringz's Factory.
+MVC web application for Pierre's Sweet and Savory Treats.
 
 # Description 
-MVC Web application that allows a manager to add a engineer to a list and view all the list of engineers.  The manager can also add a machine to a list and view of list of machines.  The manager can also add a machine to a engineer and vice versa (engineer to a machine)
+MVC Web application that allows a User/Pierre to create an account and log out.  Once the user is logged in they can create a treat or flavor and add flavors to a particular treat.  User must have an account to perform either create, edit or delete actions.  The list of treats and flavors is available to all regardsless of having a account or not.
 
 ## Technologies Used
 * C#
@@ -11,13 +11,14 @@ MVC Web application that allows a manager to add a engineer to a list and view a
 * Markup
 * Git
 * ASP.NET MVC
-* css
-* Html5
+* CSS
+* HTML5
 * Microsoft EntityFramework Core
+* Bootstrap
 
 # Complete setup/Installation instructions:
 * Clone repository to your desktop 
-* CD to the Directory: Factory
+* CD to the Directory: Pierre
 * While in the current directory [Factory]  
 * Create appsettings.json file ![example for appsettings file](image.png)
 * Replace the following values shown in image with: 
@@ -35,4 +36,4 @@ No bugs
 ## License
 
 [MIT](https://opensource.org/licenses/MIT)  
-Copyright (c) _03/17/2023_ _viradeth xay-ananh_
+Copyright (c) _03/24/2023_ _viradeth xay-ananh_
