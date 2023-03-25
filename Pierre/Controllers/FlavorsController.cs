@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Pierre.Controllers
 {
@@ -20,6 +21,7 @@ namespace Pierre.Controllers
       return View(_db.Flavors.ToList());
     }
 
+    [Authorize]
     public ActionResult Create()
     {
       return View();
@@ -41,6 +43,7 @@ namespace Pierre.Controllers
       }
     }
     //view the details of this flavor 
+    [Authorize]
     public ActionResult Details(int id)
     {
       Flavor thisFlavor = _db.Flavors
@@ -51,6 +54,7 @@ namespace Pierre.Controllers
     }
 
     //update the flavor 
+    [Authorize]
     public ActionResult Edit(int id)
     {
       Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
@@ -66,6 +70,7 @@ namespace Pierre.Controllers
     }
 
 
+    [Authorize]
     public ActionResult Delete(int id)
     {
       Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
@@ -81,6 +86,7 @@ namespace Pierre.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize]
     public ActionResult AddTreat(int id)
     {
       Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
