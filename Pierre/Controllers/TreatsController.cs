@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Pierre.Controllers
 {
@@ -20,6 +21,7 @@ namespace Pierre.Controllers
       return View(_db.Treats.ToList());
     }
 
+    [Authorize]
     public ActionResult Create()
     {
       return View();
